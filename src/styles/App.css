@@ -1,1 +1,45 @@
-/*# sourceMappingURL=App.css.map */
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5rem 0;
+  width: 100%;
+  border-bottom: 1px solid #eef3f8;
+}
+.header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header .header-left .header-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: #eef3f8;
+  border-radius: 5px;
+  color: #6b7c93;
+}
+.header .header-left .header-search input {
+  border: none;
+  outline: none;
+  background: none;
+}
+.header .header-right {
+  display: flex;
+  gap: 2rem;
+}
+
+.headerOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6b7c93;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.headerOption:hover {
+  color: #0050c0;
+}/*# sourceMappingURL=App.css.map */
