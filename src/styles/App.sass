@@ -135,6 +135,9 @@
 .feed
     flex: 0.6
     .feed-inputContainer
+        display: flex
+        flex-direction: column
+        gap: 1rem
         background: #fff
         padding: 1rem
         border-radius: 10px
@@ -157,6 +160,19 @@
                     width: 100%
                 button
                     display: none
-                    // flex: 1
-                    // margin-left: 0.5rem
-                    // font-size: 0.8rem
+        .feed-inputOptions
+            display: flex
+            align-items: center
+            justify-content: space-evenly
+
+.inputOption
+    display: flex
+    align-items: center
+    gap: 0.5rem
+    padding: 0.5rem
+    border-radius: 5px
+    .inputTitle
+        color: gray
+        // font-size: 0.8rem
+    &:hover
+        background: #eef3f8

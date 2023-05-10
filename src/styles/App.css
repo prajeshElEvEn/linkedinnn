@@ -133,6 +133,9 @@
   flex: 0.6;
 }
 .feed .feed-inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   background: #fff;
   padding: 1rem;
   border-radius: 10px;
@@ -159,4 +162,23 @@
 }
 .feed .feed-inputContainer .feed-input form button {
   display: none;
+}
+.feed .feed-inputContainer .feed-inputOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.inputOption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.inputOption .inputTitle {
+  color: gray;
+}
+.inputOption:hover {
+  background: #eef3f8;
 }/*# sourceMappingURL=App.css.map */
