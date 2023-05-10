@@ -15,7 +15,7 @@ const Sidebar = () => {
                 {/* <img src={Bg} alt="" /> */}
                 <div className="img"
                     style={{
-                        "background": `url(${Bg})`
+                        "background": `url(${Bg}) no-repeat center center / cover`
                     }}
                 ></div>
                 <Avatar />
