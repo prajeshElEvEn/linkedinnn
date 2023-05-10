@@ -3,6 +3,12 @@ import React from 'react'
 import Bg from '../assets/images/bg.jpg'
 
 const Sidebar = () => {
+    const recentItem = (topic) => (
+        <div className="sidebar-recentItem">
+            <span className="sidebar-hash">#</span>
+            <span className="hash-text">{topic}</span>
+        </div>
+    )
     return (
         <div className='sidebar'>
             <div className="sidebar-top">
@@ -44,6 +50,12 @@ const Sidebar = () => {
                 <div className="bottom-text">
                     Recent
                 </div>
+                {recentItem('reactjs')}
+                {recentItem('programming')}
+                {recentItem('jsx')}
+                {recentItem('design')}
+                {recentItem('ui/ux')}
+                {recentItem('coding')}
             </div>
         </div>
     )

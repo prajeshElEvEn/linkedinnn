@@ -114,4 +114,16 @@
   padding: 1rem;
   background: #fff;
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar .sidebar-bottom .sidebar-recentItem {
+  color: gray;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.sidebar .sidebar-bottom .sidebar-recentItem:hover {
+  background: #eef3f8;
 }/*# sourceMappingURL=App.css.map */
