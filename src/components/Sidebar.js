@@ -62,3 +62,7 @@ const Sidebar = () => {
 }
 
 export default Sidebar
+
+// hair color
+// green chips
+//

@@ -8,9 +8,15 @@ const Feed = () => {
                 <div className="feed-input">
                     <CreateIcon />
                     <form action="">
-                        <input type="text" />
+                        <input
+                            type="text"
+                            placeholder="Write something here..."
+                        />
                         <button type="submit">Send</button>
                     </form>
+                </div>
+                <div className="feed-inputOptions">
+
                 </div>
             </div>
         </div>

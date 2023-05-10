@@ -137,4 +137,26 @@
   padding: 1rem;
   border-radius: 10px;
   border: 1px solid #eef3f8;
+}
+.feed .feed-inputContainer .feed-input {
+  display: flex;
+  border: 1px solid #eef3f8;
+  border-radius: 50px;
+  padding: 0.5rem;
+  color: gray;
+  gap: 0.5rem;
+}
+.feed .feed-inputContainer .feed-input form {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+.feed .feed-inputContainer .feed-input form input {
+  border: none;
+  outline: none;
+  background: none;
+  width: 100%;
+}
+.feed .feed-inputContainer .feed-input form button {
+  display: none;
 }/*# sourceMappingURL=App.css.map */
