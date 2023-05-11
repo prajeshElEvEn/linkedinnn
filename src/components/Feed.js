@@ -66,13 +66,14 @@ const Feed = () => {
 
             {/* Post */}
             {posts.map((post) => (
-                <Post />
+                <Post
+                    key={post.id}
+                    name={post.data.name}
+                    desc={post.data.description}
+                    msg={post.data.message}
+                    photoUrl={post.data.photoUrl}
+                />
             ))}
-            <Post
-                name={'Prajesh Pratap Singh'}
-                desc={'this is a test'}
-                msg={'message'}
-            />
         </div>
     )
 }
