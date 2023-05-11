@@ -43,7 +43,7 @@ npm install
 touch .env
 ```
 
-- Add firebase config variables to .env file
+- Add firebase config variables to `.env` file
 
 ```bash
 REACT_APP_API_KEY=<YOUR_API_KEY>
@@ -55,9 +55,11 @@ REACT_APP_APP_ID=<YOUR_APP_ID>
 REACT_APP_MEASUREMENT_ID=<YOUR_MEASUREMENT_ID>
 ```
 
-```bash
 - Run `npm start` to start the app
 
+```bash
+npm start
+```
 
 ## References
 
