@@ -23,7 +23,6 @@ const Header = () => {
     return (
         <div className='header'>
             <div className="header-left">
-                {/* <img src="" alt="" /> */}
                 <LinkedInIcon
                     style={{ color: "#0050c0", fontSize: "2.5rem" }}
                 />

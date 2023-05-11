@@ -70,7 +70,6 @@ const Feed = () => {
                 </div>
             </div>
 
-            {/* Post */}
             <FlipMove>
                 {posts.map((post) => (
                     <Post
