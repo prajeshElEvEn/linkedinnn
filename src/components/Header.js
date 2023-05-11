@@ -5,8 +5,7 @@ import HeaderOption from './HeaderOption'
 import HomeIcon from '@mui/icons-material/Home';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import { BusinessCenter, Notifications } from '@mui/icons-material';
-import ChatIcon from '@mui/icons-material/Chat';
-import me from '../assets/images/me.jpg'
+import ChatIcon from '@mui/icons-material/Chat'
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, selectUser } from '../features/user/userSlice';
 import { signOut } from 'firebase/auth';

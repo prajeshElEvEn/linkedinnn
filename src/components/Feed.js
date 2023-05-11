@@ -9,6 +9,7 @@ import { collection, addDoc, serverTimestamp, onSnapshot, orderBy, query } from 
 import { db } from '../firebase/config';
 import { selectUser } from '../features/user/userSlice';
 import { useSelector } from 'react-redux';
+import FlipMove from 'react-flip-move'
 
 const Feed = () => {
     const [input, setInput] = useState('')
@@ -70,15 +71,17 @@ const Feed = () => {
             </div>
 
             {/* Post */}
-            {posts.map((post) => (
-                <Post
-                    key={post.id}
-                    name={post.data.name}
-                    desc={post.data.description}
-                    msg={post.data.message}
-                    photoUrl={post.data.photoUrl}
-                />
-            ))}
+            <FlipMove>
+                {posts.map((post) => (
+                    <Post
+                        key={post.id}
+                        name={post.data.name}
+                        desc={post.data.description}
+                        msg={post.data.message}
+                        photoUrl={post.data.photoUrl}
+                    />
+                ))}
+            </FlipMove>
         </div>
     )
 }
