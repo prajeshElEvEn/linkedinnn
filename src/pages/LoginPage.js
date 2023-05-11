@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Logo from '../assets/images/logo.png'
 import { auth } from '../firebase/config'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { useDispatch } from 'react-redux'
 import { login } from '../features/user/userSlice'
 import { toast } from 'react-toastify'
@@ -16,11 +16,24 @@ const LoginPage = () => {
 
     const loginToApp = (e) => {
         e.preventDefault()
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                dispatch(login({
+                    email: userCredential.user.email,
+                    uid: userCredential.user.uid,
+                    displayName: userCredential.user.displayName,
+                    photoUrl: userCredential.user.photoURL
+                }))
+            })
+            .catch((error) => {
+                toast.error(error.message)
+            })
     }
     const register = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                userCredential.user.updateProfile({
+                const user = userCredential.user
+                updateProfile(user, {
                     displayName: name,
                     photoURL: profilePic
                 })
@@ -34,7 +47,7 @@ const LoginPage = () => {
                     })
             })
             .catch((error) => {
-                toast.error(error)
+                toast.error(error.message)
             })
     }
 
@@ -49,16 +62,16 @@ const LoginPage = () => {
                     onChange={(e) => setName(e.target.value)}
                 />
                 <input
-                    type="email"
-                    placeholder='example@gmail.com'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
                     type="text"
                     placeholder='Profile pic URL (optional)'
                     value={profilePic}
                     onChange={(e) => setProfilePic(e.target.value)}
+                />
+                <input
+                    type="email"
+                    placeholder='example@gmail.com'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                     type="password"
