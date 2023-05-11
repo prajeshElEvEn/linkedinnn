@@ -266,4 +266,41 @@
 }
 .login .form-footer .login-register:hover {
   text-decoration: underline;
+}
+
+.widgets {
+  position: sticky;
+  top: 70px;
+  flex: 0.2;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: #fff;
+  border: 1px solid #eef3f8;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.widgets .widgets-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.widgets .widgets-header .widgets-icon {
+  color: gray;
+}
+.widgets .widgets-article {
+  display: flex;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+.widgets .widgets-article:hover {
+  background: #eef3f8;
+}
+.widgets .widgets-article .widgets-article-left {
+  color: #0050c0;
+}
+.widgets .widgets-article .widgets-article-right .article-subtitle {
+  color: gray;
+  font-size: 0.8rem;
 }/*# sourceMappingURL=App.css.map */

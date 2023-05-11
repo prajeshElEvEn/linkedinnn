@@ -10,7 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase/config';
-import { Widgets } from '@mui/icons-material';
+import Widgets from './components/Widgets';
 
 function App() {
   const user = useSelector(selectUser)
