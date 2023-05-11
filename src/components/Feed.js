@@ -7,10 +7,14 @@ import { CalendarViewDay, EventNote } from '@mui/icons-material';
 import Post from './Post';
 import { collection, addDoc, serverTimestamp, onSnapshot, orderBy, query } from "firebase/firestore"
 import { db } from '../firebase/config';
+import { selectUser } from '../features/user/userSlice';
+import { useSelector } from 'react-redux';
 
 const Feed = () => {
     const [input, setInput] = useState('')
     const [posts, setPosts] = useState([])
+
+    const user = useSelector(selectUser)
 
     useEffect(() => {
         const postRef = collection(db, "posts")
@@ -27,10 +31,10 @@ const Feed = () => {
     const sendPost = async (e) => {
         e.preventDefault()
         await addDoc(collection(db, "posts"), {
-            name: "Prajesh Pratap Singh",
-            description: "this is a test",
+            name: user.displayName,
+            description: user.email,
             message: input,
-            photoUrl: "",
+            photoUrl: user.photoUrl || "",
             timestamp: serverTimestamp()
 
         })

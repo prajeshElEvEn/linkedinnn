@@ -6,11 +6,11 @@ import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
-const Post = ({ name, desc, msg }) => {
+const Post = ({ name, desc, msg, photoUrl }) => {
     return (
         <div className='post'>
             <div className="post-header">
-                <Avatar />
+                <Avatar src={photoUrl} />
                 <div className="post-info">
                     <div className="name">
                         {name}
