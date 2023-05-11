@@ -1,8 +1,12 @@
 import { Avatar } from '@mui/material'
 import React from 'react'
 import Bg from '../assets/images/bg.jpg'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../features/user/userSlice'
 
 const Sidebar = () => {
+    const user = useSelector(selectUser)
+
     const recentItem = (topic) => (
         <div className="sidebar-recentItem">
             <span className="sidebar-hash">#</span>
@@ -18,13 +22,17 @@ const Sidebar = () => {
                         "background": `url(${Bg}) no-repeat center center / cover`
                     }}
                 ></div>
-                <Avatar />
+                <Avatar src={user.photoUrl} />
                 <div className="top-info">
                     <div className="name">
-                        Prajesh Pratap Singh
+                        {
+                            user.displayName
+                        }
                     </div>
                     <div className="email">
-                        prajesh.eleven118@gmail.com
+                        {
+                            user.email
+                        }
                     </div>
                 </div>
             </div>
