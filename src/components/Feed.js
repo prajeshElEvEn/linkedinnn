@@ -5,7 +5,7 @@ import ImageIcon from '@mui/icons-material/Image';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import { CalendarViewDay, EventNote } from '@mui/icons-material';
 import Post from './Post';
-import { collection, addDoc, getDocs } from "firebase/firestore"
+import { collection, addDoc, getDocs, serverTimestamp } from "firebase/firestore"
 import { db } from '../firebase/config';
 
 const Feed = () => {
@@ -26,10 +26,13 @@ const Feed = () => {
 
     const sendPost = async (e) => {
         e.preventDefault()
-        const postRef = await addDoc(collection(db, "posts"), {
+        await addDoc(collection(db, "posts"), {
             name: "Prajesh Pratap Singh",
             description: "this is a test",
             message: "message",
+            photoUrl: "",
+            timestamp: serverTimestamp()
+
         })
     }
 
@@ -42,6 +45,8 @@ const Feed = () => {
                         <input
                             type="text"
                             placeholder="Write something here..."
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
                         />
                         <button
                             type="submit"
