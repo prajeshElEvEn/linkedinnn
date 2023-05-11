@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase/config';
 import Widgets from './components/Widgets';
+import { Route, Routes } from 'react-router-dom';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
   const user = useSelector(selectUser)
@@ -36,7 +38,10 @@ function App() {
         <Header />
         {
           !user ? (
-            <LoginPage />
+            <Routes>
+              <Route path="/" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+            </Routes>
           ) : (
             <div className="app-body">
               <Sidebar />
@@ -45,7 +50,6 @@ function App() {
             </div>
           )
         }
-
       </div>
       <ToastContainer />
     </>

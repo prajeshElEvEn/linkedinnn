@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import Logo from '../assets/images/logo.png'
 import { auth } from '../firebase/config'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useDispatch } from 'react-redux'
 import { login } from '../features/user/userSlice'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
-    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassowrd] = useState('')
-    const [profilePic, setProfilePic] = useState('')
 
     const dispatch = useDispatch()
+    const nav = useNavigate()
 
     const loginToApp = (e) => {
         e.preventDefault()
@@ -30,43 +30,13 @@ const LoginPage = () => {
             })
     }
     const register = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user
-                updateProfile(user, {
-                    displayName: name,
-                    photoURL: profilePic
-                })
-                    .then(() => {
-                        dispatch(login({
-                            email: userCredential.user.email,
-                            uid: userCredential.user.uid,
-                            displayName: name,
-                            photoUrl: profilePic
-                        }))
-                    })
-            })
-            .catch((error) => {
-                toast.error(error.message)
-            })
+        nav('/register')
     }
 
     return (
         <div className='login'>
             <img src={Logo} alt="" />
             <form>
-                <input
-                    type="text"
-                    placeholder='Full name'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder='Profile pic URL (optional)'
-                    value={profilePic}
-                    onChange={(e) => setProfilePic(e.target.value)}
-                />
                 <input
                     type="email"
                     placeholder='example@gmail.com'
@@ -83,7 +53,7 @@ const LoginPage = () => {
                     type="submit"
                     onClick={loginToApp}
                 >
-                    Sign In
+                    Login
                 </button>
             </form>
             <div className="form-footer">
