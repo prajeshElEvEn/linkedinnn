@@ -5,7 +5,7 @@ import ImageIcon from '@mui/icons-material/Image';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import { CalendarViewDay, EventNote } from '@mui/icons-material';
 import Post from './Post';
-import { collection, addDoc, getDocs, serverTimestamp } from "firebase/firestore"
+import { collection, addDoc, serverTimestamp, onSnapshot, orderBy, query } from "firebase/firestore"
 import { db } from '../firebase/config';
 
 const Feed = () => {
@@ -13,14 +13,14 @@ const Feed = () => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        const getPosts = async () => {
-            const postSnapshot = await getDocs(collection(db, "posts"))
-            setPosts(postSnapshot.docs.map((doc) => ({
+        const postRef = collection(db, "posts")
+        const postQuery = query(postRef, orderBy("timestamp", "desc"))
+        onSnapshot(postQuery, (snapshot) => {
+            setPosts(snapshot.docs.map((doc) => ({
                 id: doc.id,
                 data: doc.data()
             })))
-        }
-        getPosts()
+        })
     }, [])
 
 
@@ -29,11 +29,12 @@ const Feed = () => {
         await addDoc(collection(db, "posts"), {
             name: "Prajesh Pratap Singh",
             description: "this is a test",
-            message: "message",
+            message: input,
             photoUrl: "",
             timestamp: serverTimestamp()
 
         })
+        setInput('')
     }
 
     return (
